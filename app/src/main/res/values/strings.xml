@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ImcCalculator</string>
+    <string name="enter_your_height_in_cm">Enter your height in CM</string>
+    <string name="enter_your_weight_in_kg">Enter your weight in KG</string>
+    <string name="calculate">Calculate</string>
+    <string name="textview">TextView</string>
+</resources>
