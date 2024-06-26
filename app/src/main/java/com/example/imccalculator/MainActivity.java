@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tvResult;
 
+    double weight, height, IMC;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +35,37 @@ public class MainActivity extends AppCompatActivity {
 
         tvResult.setVisibility(View.GONE);
 
-        
+
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                IMC = weight / (height * height);
+
+
+
+                if (IMC < 18.5){
+                    tvResult.setText("Insufficient weight");
+                } else if (IMC >= 18.5 &  IMC <= 24.9) {
+                    tvResult.setText("Normal weight");
+                } else if (IMC >= 25 & IMC <= 26.9) {
+                    tvResult.setText("Overweight grade 1");
+                }else if (IMC >= 27 & IMC <= 29.9) {
+                    tvResult.setText("Overweight grade 2 (Pre-obesity)");
+                }else if (IMC >= 30 & IMC <= 34.9) {
+                    tvResult.setText("Type 1 obesity");
+                }else if (IMC >= 35 & IMC <= 39.9) {
+                    tvResult.setText("Type 2 obesity");
+                }else if (IMC >= 40 & IMC <= 49.9) {
+                    tvResult.setText("Type 3 obesity (Morbid)");
+                }else if (IMC >= 50) {
+                    tvResult.setText("Type 4 obesity (Extreme)");
+                }
+ 
+
+
+
 
             }
         });

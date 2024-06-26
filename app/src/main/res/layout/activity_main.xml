@@ -71,4 +71,5 @@
         android:textStyle="bold"
         android:text="@string/textview" />
 
+
 </LinearLayout>
