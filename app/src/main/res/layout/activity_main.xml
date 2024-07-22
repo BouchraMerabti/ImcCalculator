@@ -71,5 +71,14 @@
         android:textStyle="bold"
         android:text="@string/textview" />
 
+    <ImageView
+        android:id="@+id/imEmoji"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        app:srcCompat="@drawable/big_smile" />
+
 
 </LinearLayout>
