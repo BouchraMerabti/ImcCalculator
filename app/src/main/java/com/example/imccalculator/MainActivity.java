@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     double weight, height, IMC;
 
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,33 +42,42 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                try {
+                    weight = Double.parseDouble(etWeight.getText().toString());
+                    height = Double.parseDouble(etHeight.getText().toString()) / 100;
 
-                IMC = weight / (height * height);
+                    IMC = weight / (height * height);
 
 
+                    String resultText = "";
+                    if (IMC < 18.5) {
+                        resultText = "Insufficient weight";
+                    } else if (IMC >= 18.5 && IMC <= 24.9) {
+                        resultText = "Normal weight";
+                    } else if (IMC >= 25 && IMC <= 26.9) {
+                        resultText = "Overweight grade 1";
+                    } else if (IMC >= 27 && IMC <= 29.9) {
+                        resultText = "Overweight grade 2 (Pre-obesity)";
+                    } else if (IMC >= 30 && IMC <= 34.9) {
+                        resultText = "Type 1 obesity";
+                    } else if (IMC >= 35 && IMC <= 39.9) {
+                        resultText = "Type 2 obesity";
+                    } else if (IMC >= 40 && IMC <= 49.9) {
+                        resultText = "Type 3 obesity (Morbid)";
+                    } else {
+                        resultText = "Type 4 obesity (Extreme)";
+                    }
 
-                if (IMC < 18.5){
-                    tvResult.setText("Insufficient weight");
-                } else if (IMC >= 18.5 &  IMC <= 24.9) {
-                    tvResult.setText("Normal weight");
-                } else if (IMC >= 25 & IMC <= 26.9) {
-                    tvResult.setText("Overweight grade 1");
-                }else if (IMC >= 27 & IMC <= 29.9) {
-                    tvResult.setText("Overweight grade 2 (Pre-obesity)");
-                }else if (IMC >= 30 & IMC <= 34.9) {
-                    tvResult.setText("Type 1 obesity");
-                }else if (IMC >= 35 & IMC <= 39.9) {
-                    tvResult.setText("Type 2 obesity");
-                }else if (IMC >= 40 & IMC <= 49.9) {
-                    tvResult.setText("Type 3 obesity (Morbid)");
-                }else if (IMC >= 50) {
-                    tvResult.setText("Type 4 obesity (Extreme)");
+
+                    tvResult.setText("You are : " + resultText);
+                    tvResult.setVisibility(View.VISIBLE);
+                } catch (Exception e) {
+
+                    tvResult.setText("Please enter a valid number");
+                    tvResult.setVisibility(View.VISIBLE);
+
+
                 }
- 
-
-
-
-
             }
         });
     }
